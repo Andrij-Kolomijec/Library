@@ -50,7 +50,7 @@ function displayBook(myLibrary) {
         author.textContent = `${item.author}`;
         pages.textContent = `${item.pages}`;
 
-        if (item.read) {
+        if (item.read === true) {
             sliderSpan.textContent = `Read`;
             sliderCheckbox.checked = true;
         } else {
@@ -73,7 +73,7 @@ const submitNewBook = document.querySelector('[data-submit-modal]');
 const modal = document.querySelector('[data-modal]');
 const form = document.querySelector('form');
 
-openNewBookButton.addEventListener('click', () => {
+openNewBookButton.addEventListener('click', (e) => {
     modal.showModal();
 })
 
@@ -132,12 +132,15 @@ modal.addEventListener("click", e => { // to close the window when clicking outs
 
 document.addEventListener('click', e => { // so it works after adding a new book -> commented out code above is not needed
     if (e.target.matches('.slider')) {
-        if (e.target.checked === false) {
+        if (e.target.textContent === 'Not read' && e.target.checked === false) {
             e.target.textContent = 'Read';
             e.target.checked = true;
-        } else {
-            e.target.checked = false;
+        } else if (e.target.textContent === 'Read' && e.target.checked === true) {
             e.target.textContent = 'Not read';
+            e.target.checked = false;
+        } else if (e.target.checked === undefined) {
+            if (e.target.textContent = 'Read') e.target.checked = true;
+            else if (e.target.textContent = 'Not read') e.target.checked = false;
         }
     }
 })

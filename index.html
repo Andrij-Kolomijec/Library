@@ -21,7 +21,12 @@
                 <label for="submit-pages">Number of pages:</label>
                 <input type="number" id="submit-pages" required>
                 <label for="submit-read">Have you read it?</label>
-                <input type="checkbox" id="submit-read">
+                <div class="read">
+                    <label class="switch">                    
+                        <input id="submit-read" class="slider-checkbox" type="checkbox" checked>
+                        <span class="slider">Read</span>
+                    </label>
+                </div>
                 <button data-submit-modal type="submit">Submit</button>
                 <button data-close-modal formmethod="dialog" type="submit">Close</button>
             </form>
@@ -45,8 +50,8 @@
             <div class="pages">420</div>
             <div class="read">
                 <label class="switch">                    
-                    <input class="slider-checkbox" type="checkbox" checked>
-                    <span class="slider">Read</span>
+                    <input class="slider-checkbox" type="checkbox">
+                    <span class="slider">Not read</span>
                 </label>
             </div>
         </div>
