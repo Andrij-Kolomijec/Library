@@ -11,8 +11,28 @@
 <body>
     <div class="header">
         <h1>library</h1>
+        <button data-open-modal>new book</button>
+        <dialog data-modal>
+            <form>
+                <label for="submit-title">Title:</label>
+                <input type="text" id="submit-title" required>
+
+                <label for="submit-author">Author:</label>
+                <input type="text" id="submit-author" required>
+
+                <label for="submit-pages">Number of pages:</label>
+                <input type="number" id="submit-pages" required>
+
+                <label for="submit-read">Have you read it?</label>
+                <input type="checkbox" id="submit-read" required>
+
+                <button data-submit-modal>Submit</button>
+                <button data-close-modal>Close</button>
+            </form>
+            
+        </dialog>
     </div>
-    <div class="content">
+    <div id="content">
         <div class="book">
             <div class="title">Harry Potter</div>
             <div class="author">J. K. Rowling</div>
@@ -25,7 +45,18 @@
             <div class="pages">420</div>
             <div class="read">Read</div>
         </div>
-        
+        <div class="book">
+            <div class="title">Harry Potter</div>
+            <div class="author">J. K. Rowling</div>
+            <div class="pages">420</div>
+            <div class="read">Read</div>
+        </div>
+        <div class="book">
+            <div class="title">Harry Potter</div>
+            <div class="author">J. K. Rowling</div>
+            <div class="pages">420</div>
+            <div class="read">Read</div>
+        </div>
     </div>
 </body>
 </html>

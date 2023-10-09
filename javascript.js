@@ -15,9 +15,6 @@ Book.prototype.info = function () {
     }
 }
 
-// All of your book objects are going to be stored in a simple array, 
-// so add a function to the script (not the constructor) that can take 
-// user’s input and store the new book objects into an array. 
 
 function addBookToLibrary () {
     let title = prompt('What is the title of the book?');
@@ -28,7 +25,36 @@ function addBookToLibrary () {
     myLibrary.push(newBook);
 }
 
+function displayBooks(myLibrary) {
+    for (let item of myLibrary) {
+        const container = document.querySelector('#content');
+        const book = document.createElement('div');
+        const title = document.createElement('div');
+        const author = document.createElement('div');
+        const pages = document.createElement('div');
+        const read = document.createElement('div');
+        book.setAttribute('class', 'book');
+        title.setAttribute('class', 'title');
+        author.setAttribute('class', 'author');
+        pages.setAttribute('class', 'pages');
+        read.setAttribute('class', 'read');
+        title.textContent = `${item.title}`;
+        author.textContent = `${item.author}`;
+        pages.textContent = `${item.pages}`;
+        read.textContent = `${item.read}`;
+        book.append(title, author, pages, read);
+        container.append(book);
+    }
+}
 
-// Write a function that loops through the array and displays each book on the page. 
-// You can display them in some sort of table, or each on their own “card”. 
-// It might help for now to manually add a few books to your array so you can see the display.
+const openNewBookButton = document.querySelector('[data-open-modal]');
+const closeNewBookButton = document.querySelector('[data-close-modal]');
+const modal = document.querySelector('[data-modal]');
+
+openNewBookButton.addEventListener('click', () => {
+    modal.showModal();
+})
+
+closeNewBookButton.addEventListener('click', () => {
+    modal.close()
+})
