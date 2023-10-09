@@ -15,7 +15,6 @@ Book.prototype.info = function () {
     }
 }
 
-
 function addBookToLibrary () {
     let title = document.querySelector('#submit-title').value;
     let author = document.querySelector('#submit-author').value;
@@ -33,15 +32,34 @@ function displayBook(myLibrary) {
         const author = document.createElement('div');
         const pages = document.createElement('div');
         const read = document.createElement('div');
+        const switchLabel = document.createElement('label');
+        const sliderCheckbox = document.createElement('input');
+        const sliderSpan = document.createElement('span');
+
         book.setAttribute('class', 'book');
         title.setAttribute('class', 'title');
         author.setAttribute('class', 'author');
         pages.setAttribute('class', 'pages');
         read.setAttribute('class', 'read');
+        switchLabel.setAttribute('class', 'switch');
+        sliderCheckbox.setAttribute('class', 'slider-checkbox');
+        sliderCheckbox.setAttribute('type', 'checkbox');
+        sliderSpan.setAttribute('class', 'slider');
+
         title.textContent = `${item.title}`;
         author.textContent = `${item.author}`;
         pages.textContent = `${item.pages}`;
-        read.textContent = `${item.read}`;
+
+        if (item.read) {
+            sliderSpan.textContent = `Read`;
+            sliderCheckbox.checked = true;
+        } else {
+            sliderSpan.textContent = `Not read`;
+            sliderCheckbox.checked = false;
+        }
+        
+        switchLabel.append(sliderCheckbox, sliderSpan);
+        read.append(switchLabel);
         book.append(title, author, pages, read);
         container.append(book);
     }
@@ -61,8 +79,8 @@ openNewBookButton.addEventListener('click', () => {
 
 submitNewBook.addEventListener('click', (e) => {
     e.preventDefault();
-    form.reportValidity(); // shows messages
-    if (form.checkValidity()) { // return true/false if form is valid
+    form.reportValidity(); // shows messages if invalid
+    if (form.checkValidity()) { // return true/false if form is valid/invalid
         addBookToLibrary();
         displayBook(myLibrary);
         document.querySelector("Form").reset();
@@ -83,7 +101,6 @@ form.addEventListener('keydown', (e) => {
     }
 })
 
-
 closeNewBookButton.addEventListener('click', () => {
     modal.close();
 })
@@ -98,4 +115,29 @@ modal.addEventListener("click", e => { // to close the window when clicking outs
     ) {
       modal.close()
     }
-  })
+})
+
+// let switchButtons = document.querySelectorAll('.slider');
+// switchButtons.forEach((switchButton) => {
+//     switchButton.addEventListener('click', (e) => {
+//         if (e.target.checked === false) {
+//             e.target.textContent = 'Read';
+//             e.target.checked = true;
+//         } else {
+//             e.target.checked = false;
+//             e.target.textContent = 'Not read';
+//         }
+//     })
+// })
+
+document.addEventListener('click', e => { // so it works after adding a new book -> commented out code above is not needed
+    if (e.target.matches('.slider')) {
+        if (e.target.checked === false) {
+            e.target.textContent = 'Read';
+            e.target.checked = true;
+        } else {
+            e.target.checked = false;
+            e.target.textContent = 'Not read';
+        }
+    }
+})

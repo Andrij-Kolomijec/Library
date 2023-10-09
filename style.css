@@ -20,10 +20,11 @@ button {
 
 #content {
     display: grid;
-    grid-template: repeat(auto-fill, 200px) / repeat(auto-fill, minmax(200px, 1fr));
+    grid-template: repeat(auto-fit, 200px) / repeat(auto-fit, minmax(200px, 300px));
     grid-auto-rows: 200px;
     gap: 30px;
     padding: 50px;
+    justify-content: space-evenly;
 }
 
 .book {
@@ -35,7 +36,6 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 dialog::backdrop {
@@ -50,4 +50,71 @@ form {
 
 form > button {
     place-self: center;
+}
+
+/* Sliders */
+
+.switch { /* The switch - the box around the slider */
+    position: relative;
+    display: inline-block;
+    width: 70px; /* of the rail */
+    height: 20px;
+}
+
+.read input { /* Hide default HTML checkbox */
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider { /* The slider */
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #b6141c;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 25px; /* of the knob */
+    width: 5px;
+    left: -5px;
+    bottom: -2px;
+    background-color: lightblue;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #22a142;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #22a142;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(75px); /* knob's travel distance */
+    -ms-transform: translateX(75px);
+    transform: translateX(75px);
+}
+
+/* Rounded sliders - add rounded to .slider class*/
+/* .slider.round { 
+    border-radius: 34px;
+}
+.slider.round:before {
+border-radius: 50%;
+} */
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

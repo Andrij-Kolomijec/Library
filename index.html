@@ -16,20 +16,15 @@
             <form>
                 <label for="submit-title">Title:</label>
                 <input type="text" id="submit-title" required>
-
                 <label for="submit-author">Author:</label>
                 <input type="text" id="submit-author" required>
-
                 <label for="submit-pages">Number of pages:</label>
                 <input type="number" id="submit-pages" required>
-
                 <label for="submit-read">Have you read it?</label>
                 <input type="checkbox" id="submit-read">
-
                 <button data-submit-modal type="submit">Submit</button>
                 <button data-close-modal formmethod="dialog" type="submit">Close</button>
             </form>
-            
         </dialog>
     </div>
     <div id="content">
@@ -37,25 +32,23 @@
             <div class="title">Harry Potter</div>
             <div class="author">J. K. Rowling</div>
             <div class="pages">420</div>
-            <div class="read">Read</div>
+            <div class="read">
+                <label class="switch">                    
+                    <input class="slider-checkbox" type="checkbox" checked>
+                    <span class="slider">Read</span>
+                </label>
+            </div>
         </div>
         <div class="book">
             <div class="title">Harry Potter</div>
             <div class="author">J. K. Rowling</div>
             <div class="pages">420</div>
-            <div class="read">Read</div>
-        </div>
-        <div class="book">
-            <div class="title">Harry Potter</div>
-            <div class="author">J. K. Rowling</div>
-            <div class="pages">420</div>
-            <div class="read">Read</div>
-        </div>
-        <div class="book">
-            <div class="title">Harry Potter</div>
-            <div class="author">J. K. Rowling</div>
-            <div class="pages">420</div>
-            <div class="read">Read</div>
+            <div class="read">
+                <label class="switch">                    
+                    <input class="slider-checkbox" type="checkbox" checked>
+                    <span class="slider">Read</span>
+                </label>
+            </div>
         </div>
     </div>
 </body>
