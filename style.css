@@ -46,19 +46,40 @@ button:active {
 .book {
     border: 5px solid lightblue;
     border-radius: 10px;
-    padding: 20px;
+    padding: 50px;
     display: flex;
-    gap: 20px;
+    gap: 15px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     background-color: rgb(216, 210, 147);
+    position: relative;
+    text-align: center;
 }
 
 .book:hover {
-    transition: 0.5s;
+    transition: 0.2s;
     transform: scale(1.05);
+}
+
+.close {
+    position: absolute;
+    height: 20px;
+    filter: invert(13%) sepia(59%) saturate(4521%) hue-rotate(352deg) brightness(77%) contrast(118%);
+    right: 10px;
+    top: 9px;
+}
+
+.close:hover {
+    transition: 0.5s;
+    transform: scale(1.50);
+    cursor: pointer;
+}
+
+.close:active {
+    transition: 0.2s;
+    transform: scale(0.95);
 }
 
 dialog {

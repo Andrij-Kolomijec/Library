@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="javascript.js" defer></script>
-    <!-- <link rel="icon" href="./favicon.svg"> -->
+    <link rel="icon" href="./favicon.svg">
     <title>Library</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
                 <div class="read">
                     <label class="switch">                    
                         <input id="submit-read" class="slider-checkbox" type="checkbox" checked>
-                        <span class="slider">Read</span>
+                        <span id="submit-slider" class="slider">Read</span>
                     </label>
                 </div>
                 <button data-submit-modal type="submit">Submit</button>
@@ -34,9 +34,10 @@
     </div>
     <div id="content">
         <div class="book">
-            <div class="title">Harry Potter</div>
+            <img src="./close.svg" class="close">
+            <div class="title">Harry Potter and the Order of the Phoenix</div>
             <div class="author">J. K. Rowling</div>
-            <div class="pages">420</div>
+            <div class="pages">766 pages</div>
             <div class="read">
                 <label class="switch">                    
                     <input class="slider-checkbox" type="checkbox" checked>
@@ -45,9 +46,10 @@
             </div>
         </div>
         <div class="book">
-            <div class="title">Harry Potter</div>
+            <img src="./close.svg" class="close">
+            <div class="title">Harry Potter and the Goblet of Fire</div>
             <div class="author">J. K. Rowling</div>
-            <div class="pages">420</div>
+            <div class="pages">640 pages</div>
             <div class="read">
                 <label class="switch">                    
                     <input class="slider-checkbox" type="checkbox">

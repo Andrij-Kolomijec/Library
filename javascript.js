@@ -26,6 +26,7 @@ function addBookToLibrary () {
 
 function displayBook(myLibrary) {
     for (let item of myLibrary.slice(-1)) {
+
         const container = document.querySelector('#content');
         const book = document.createElement('div');
         const title = document.createElement('div');
@@ -35,6 +36,7 @@ function displayBook(myLibrary) {
         const switchLabel = document.createElement('label');
         const sliderCheckbox = document.createElement('input');
         const sliderSpan = document.createElement('span');
+        const closeImg = document.createElement('img');
 
         book.setAttribute('class', 'book');
         title.setAttribute('class', 'title');
@@ -46,9 +48,12 @@ function displayBook(myLibrary) {
         sliderCheckbox.setAttribute('type', 'checkbox');
         sliderSpan.setAttribute('class', 'slider');
 
+        closeImg.setAttribute('class', 'close');
+        closeImg.src = './close.svg';
+
         title.textContent = `${item.title}`;
         author.textContent = `${item.author}`;
-        pages.textContent = `${item.pages}`;
+        pages.textContent = `${item.pages} pages`;
 
         if (item.read === true) {
             sliderSpan.textContent = `Read`;
@@ -60,7 +65,7 @@ function displayBook(myLibrary) {
         
         switchLabel.append(sliderCheckbox, sliderSpan);
         read.append(switchLabel);
-        book.append(title, author, pages, read);
+        book.append(closeImg, title, author, pages, read);
         container.append(book);
     }
 }
@@ -72,6 +77,7 @@ const closeNewBookButton = document.querySelector('[data-close-modal]');
 const submitNewBook = document.querySelector('[data-submit-modal]');
 const modal = document.querySelector('[data-modal]');
 const form = document.querySelector('form');
+const submitSlider = document.querySelector('#submit-slider');
 
 openNewBookButton.addEventListener('click', (e) => {
     modal.showModal();
@@ -85,6 +91,7 @@ submitNewBook.addEventListener('click', (e) => {
         displayBook(myLibrary);
         document.querySelector("Form").reset();
         modal.close();
+        submitSlider.textContent = 'Read';
     }
 })
 
@@ -97,6 +104,7 @@ form.addEventListener('keydown', (e) => {
             displayBook(myLibrary);
             document.querySelector("Form").reset();
             modal.close();
+            submitSlider.textContent = 'Read';
         }
     }
 })
@@ -132,15 +140,14 @@ modal.addEventListener("click", e => { // to close the window when clicking outs
 
 document.addEventListener('click', e => { // so it works after adding a new book -> commented out code above is not needed
     if (e.target.matches('.slider')) {
-        if (e.target.textContent === 'Not read' && e.target.checked === false) {
+        if (e.target.textContent === 'Not read') {
             e.target.textContent = 'Read';
             e.target.checked = true;
-        } else if (e.target.textContent === 'Read' && e.target.checked === true) {
+        } else if (e.target.textContent === 'Read') {
             e.target.textContent = 'Not read';
             e.target.checked = false;
-        } else if (e.target.checked === undefined) {
-            if (e.target.textContent = 'Read') e.target.checked = true;
-            else if (e.target.textContent = 'Not read') e.target.checked = false;
         }
+    } else if (e.target.matches('.close')) {
+        e.target.parentNode.remove();
     }
 })
