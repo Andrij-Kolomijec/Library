@@ -1,6 +1,6 @@
 # Library
 The Odin Project
 
-[visit here](https://andrij-kolomijec.github.io/Library/) :arrow_forward:
+[:arrow_forward: visit here](https://andrij-kolomijec.github.io/Library/)
 
 topics: object constructors, event delegation
