@@ -8,7 +8,7 @@ function Book (title, author, pages, read) {
 }
 
 Book.prototype.info = function () {
-    if (this.read === 'yes') {
+    if (this.read) {
         console.log(`${this.title} by ${this.author}, ${this.pages} pages, already read.`)
     } else {
         console.log(`${this.title} by ${this.author}, ${this.pages} pages, not read yet.`)
