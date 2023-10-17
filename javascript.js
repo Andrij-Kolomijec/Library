@@ -1,17 +1,35 @@
 const myLibrary = [];
 
-function Book (title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
+// function Book (title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+// }
 
-Book.prototype.info = function () {
-    if (this.read) {
-        console.log(`${this.title} by ${this.author}, ${this.pages} pages, already read.`)
-    } else {
-        console.log(`${this.title} by ${this.author}, ${this.pages} pages, not read yet.`)
+// Book.prototype.info = function () {
+//     if (this.read) {
+//         console.log(`${this.title} by ${this.author}, ${this.pages} pages, already read.`)
+//     } else {
+//         console.log(`${this.title} by ${this.author}, ${this.pages} pages, not read yet.`)
+//     }
+// }
+
+// Refactored as class
+
+class Book {
+    constructor (title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    info() {
+        if (this.read) {
+            console.log(`${this.title} by ${this.author}, ${this.pages} pages, already read.`)
+        } else {
+            console.log(`${this.title} by ${this.author}, ${this.pages} pages, not read yet.`)
+        }
     }
 }
 
